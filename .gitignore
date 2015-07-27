@@ -1,12 +1,41 @@
+# and2
+nightly/libs
+bitz/data/*
+
+ignore/*
+
+.DS_Store
+*/.DS_Store
+**/**/.DS_Store
+
+.metadata
+*/.metadata
+
+*/bin/**
+*/tmp/**
+*/tmp/**/*
+*.tmp
+*.bak
+*.swp
+*~.nib
+
+RemoteSystemsTempFiles/
+
+# android specific
+# */gen/*   ### we want these!
+*/bin
+
+# files for the dex VM
+*.dex
+
+# Java class files
 *.class
 
-# Mobile Tools for Java (J2ME)
-.mtj.tmp/
+# generated GUI files
+*R.java
 
-# Package Files #
-*.jar
-*.war
-*.ear
-
-# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
-hs_err_pid*
+### eclipse files we DO want
+# local.properties
+# */.loadpath
+# classpath
+# settings
