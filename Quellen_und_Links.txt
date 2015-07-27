@@ -1,0 +1,4 @@
+Quellen:
+
+Nützliche Links:
+LibGDX: http://www.gamefromscratch.com/page/LibGDX-Video-Tutorial-Series.aspx
