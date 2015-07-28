@@ -18,8 +18,13 @@
 	- Mögliche Hindernisse
 	- Design eines Characters (Textur und Stil)
 	- Erste Texturen für verschiedene Arten von Welten
+	- Eine kleine Story rund um die Handlungsmotive des Charakters könnte sich ausgedacht werden (Suche nach Ressourcen, Entdecker,..)
 
 5. Zusammenführung einzelner Elemente
 	- Zusammenführung der Level
+	- Unterschiedliche Fenster für den Benutzer
+		- Startbildschirm
+		- Levelbildschirm
+		- Levelauswahl
 
 6. Bugfixing		
