@@ -41,4 +41,7 @@ Problemstellungen und Fragen
 	- Bewegt sich die Welt oder bewegt sich der Spieler?
 		- Wie Flappybird, das man dauerhaft in der Mitte ist und dann Objekten ausweicht
 		- Der Charakter bewegt sich wie Mario, kann auch rückwärts gehen
-			- Möglichkeit den Seitenwechsel über Überblendung zu gestalten	
+			- Möglichkeit den Seitenwechsel über Überblendung zu gestalten
+
+		- Kameraposition ermitteln und Objekte nur rendern, wenn sie eine bestimmte Anzahl an Einheiten entfernt liegen
+			- Objekte/Hindernisse brauchen Informationen über die Koordinaten an denen sie erscheinen sollen		
