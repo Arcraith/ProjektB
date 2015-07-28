@@ -1,0 +1,25 @@
+1. Einarbeitung
+	- Einarbeitung in LibGDX und jBox2d
+	- Ausprobieren einzelner Dinge, die man implementieren möchte
+
+2. Erstellung der Bewegung des Charakters auf horizontaler Ebene	
+	- Tastatursteuerung
+	- Bewegung des Hintergrunds oder des Charakters
+	- Sprung
+	- Erste Hindernisse
+
+3. Erstellung der weiteren "Ebenen" (rechts, unten, links)
+	- Anpassung der Steuerung abhängig vom Eintritt in neue "Ebene"	--> Gravitation
+	- Anpassung der Bewegung des Hintergrundes (nach unten, links, oben..)
+
+4. Level und Character-Design
+	- Skizzen zu möglichen Leveln
+	- Wahl eines HUD für Zeit und Level-Anzeige
+	- Mögliche Hindernisse
+	- Design eines Characters (Textur und Stil)
+	- Erste Texturen für verschiedene Arten von Welten
+
+5. Zusammenführung einzelner Elemente
+	- Zusammenführung der Level
+
+6. Bugfixing		
