@@ -28,3 +28,17 @@
 		- Levelauswahl
 
 6. Bugfixing		
+
+
+
+Problemstellungen und Fragen
+	- Wie genau werden Hindernisse gespawnt?
+		- Von Anfang an da? --> Große Koordinaten, höhere Ladezeiten beim Level?
+		- Zufällig nach einer bestimmten Distanz/Zeit/....?
+	- Wie wird der Seitenwechsel (Änderung der Gravitation) erkannt?	
+	- Auslagerung der Hindernisse in eigene Objekte
+		- Wie werden sie geladen?
+	- Bewegt sich die Welt oder bewegt sich der Spieler?
+		- Wie Flappybird, das man dauerhaft in der Mitte ist und dann Objekten ausweicht
+		- Der Charakter bewegt sich wie Mario, kann auch rückwärts gehen
+			- Möglichkeit den Seitenwechsel über Überblendung zu gestalten	
