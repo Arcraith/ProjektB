@@ -39,7 +39,7 @@ public class MainClass extends ApplicationAdapter implements InputProcessor{
 		} else if (keycode == Input.Keys.RIGHT){
 			sprite.translateX(1f);
 		}
-		return false;
+		return true;
 	}
 
 	@Override

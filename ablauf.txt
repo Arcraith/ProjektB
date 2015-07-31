@@ -1,6 +1,7 @@
 1. Einarbeitung
 	- Einarbeitung in LibGDX und jBox2d
 	- Ausprobieren einzelner Dinge, die man implementieren möchte
+	- Einarbeitung in Kamera-Basics (Viewport etc.)
 
 2. Erstellung der Bewegung des Charakters auf horizontaler Ebene	
 	- Tastatursteuerung

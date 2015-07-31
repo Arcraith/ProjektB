@@ -2,3 +2,4 @@ Quellen:
 
 Nützliche Links:
 LibGDX: http://www.gamefromscratch.com/page/LibGDX-Video-Tutorial-Series.aspx
+		http://www.gamefromscratch.com/page/LibGDX-Tutorial-series.aspx
