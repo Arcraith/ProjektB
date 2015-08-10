@@ -3,8 +3,8 @@ package com.mygdx.game;
 import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
-import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.physics.box2d.Body;
@@ -12,21 +12,30 @@ import com.badlogic.gdx.physics.box2d.BodyDef;
 import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
 import com.badlogic.gdx.physics.box2d.PolygonShape;
 import com.badlogic.gdx.physics.box2d.World;
+import com.mygdx.game.managers.GameStateManager;
 
-public class JBox2DTest extends ApplicationAdapter {
+public class Application extends ApplicationAdapter {
 
 	// Jedes Mal, wenn Informationen aus der World bezogen werden, und nicht,
 	// wenn man der World Informationen gibt, muss diese Information mit PPM
 	// multipliziert werden. Wenn man einem Box2D-Objekt Werte gibt, müssen
 	// diese mit PPM dividiert werden (runterskaliert)
 	private static final float PPM = 32;
+	public static final String TITLE = "Testlauf";
+	public static final int V_WIDTH = 720;
+	public static final int V_HEIGHT = 480;
+	public static final float SCALE = 2.0f;
 
 	private boolean DEBUG = false;
 
 	private OrthographicCamera camera;
-	private World world;
+	private SpriteBatch batch;
+	
+	private GameStateManager gsm;
+	
 	// Renderer, der die Objekte in der World anzeigt (für Debug-Zwecke)
 	private Box2DDebugRenderer b2dr;
+	private World world;
 	private Body player, platform;
 
 	@Override
@@ -37,7 +46,9 @@ public class JBox2DTest extends ApplicationAdapter {
 		float h = Gdx.graphics.getHeight();
 
 		camera = new OrthographicCamera();
-		camera.setToOrtho(false, w / 2, h / 2);
+		camera.setToOrtho(false, w / SCALE, h / SCALE);
+		
+		gsm = new GameStateManager(this);
 
 		// Erstellen einer World mit realer Gravitation
 		world = new World(new Vector2(0, -9.8f), false);
@@ -50,17 +61,22 @@ public class JBox2DTest extends ApplicationAdapter {
 
 	@Override
 	public void render() {
-		update(Gdx.graphics.getDeltaTime());
-
-		// Funktion, die das Rendern übernimmt
-		Gdx.gl.glClearColor(0f, 0f, 0f, 1f);
-		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-
-		b2dr.render(world, camera.combined.scl(PPM));
+		gsm.update(Gdx.graphics.getDeltaTime());
+		gsm.render();
+		
+//		update(Gdx.graphics.getDeltaTime());
+//
+//		// Funktion, die das Rendern übernimmt
+//		Gdx.gl.glClearColor(0f, 0f, 0f, 1f);
+//		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+//
+//		b2dr.render(world, camera.combined.scl(PPM));
 	}
 
 	@Override
 	public void dispose() {
+		gsm.dispose();
+		
 		// Loslassen von Ressourcen
 		world.dispose();
 		b2dr.dispose();
@@ -68,7 +84,7 @@ public class JBox2DTest extends ApplicationAdapter {
 
 	@Override
 	public void resize(int width, int height) {
-		camera.setToOrtho(false, width / 2, height / 2);
+		gsm.resize((int) (width/SCALE), (int) (height/SCALE));
 	}
 
 	public void update(float delta) {
@@ -133,5 +149,13 @@ public class JBox2DTest extends ApplicationAdapter {
 		position.y = player.getPosition().y * PPM;
 		camera.position.set(position);
 		camera.update();
+	}
+	
+	public OrthographicCamera getCamera(){
+		return camera;
+	}
+	
+	public SpriteBatch getBatch(){
+		return batch;
 	}
 }
