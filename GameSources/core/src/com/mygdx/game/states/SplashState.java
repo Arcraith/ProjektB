@@ -5,6 +5,8 @@ import com.badlogic.gdx.graphics.GL20;
 import com.mygdx.game.managers.GameStateManager;
 
 public class SplashState extends GameState{
+	
+	private float count;
 
 	public SplashState(GameStateManager gsm) {
 		super(gsm);
@@ -13,7 +15,10 @@ public class SplashState extends GameState{
 
 	@Override
 	public void update(float delta) {
-		// TODO Auto-generated method stub
+		count += delta;
+		if(count >= 3){
+			gsm.setState(GameStateManager.State.PLAY);
+		}
 		
 	}
 
