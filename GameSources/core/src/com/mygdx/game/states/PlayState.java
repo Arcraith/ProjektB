@@ -46,10 +46,6 @@ public class PlayState extends GameState {
 
 	@Override
 	public void render() {
-		Gdx.gl.glClearColor(0f, 1f, 0f, 1f);
-		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-
-		// Funktion, die das Rendern übernimmt
 		Gdx.gl.glClearColor(0f, 0f, 0f, 1f);
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
