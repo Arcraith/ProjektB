@@ -14,11 +14,17 @@ import com.mygdx.game.managers.GameStateManager;
 
 public class PlayState extends GameState {
 
-	// Renderer, der die Objekte in der World anzeigt (für Debug-Zwecke)
+	// If you're giving Box2D Units, divide by PPM. If you're getting Box2D Unity, multiply by PPM.
 	private static final float PPM = 32;
+
+	// Renderer, der die Objekte in der World anzeigt (für Debug-Zwecke)
 	private Box2DDebugRenderer b2dr;
 	private World world;
 	private Body player, platform;
+	
+	// Variablen für den Spielablauf
+	// TODO: Character muss in die Richtung im oder gegen den Uhrzeigersinn schauen --> facingRight: im Uhrzeigersinn
+	private boolean facingRight = true;
 
 	public PlayState(GameStateManager gsm) {
 		super(gsm);
@@ -27,7 +33,7 @@ public class PlayState extends GameState {
 		b2dr = new Box2DDebugRenderer();
 
 		player = createBox(8, 10, 32, 32, false);
-		platform = createBox(0, 0, 64, 32, true);
+		platform = createBox(0, 0, 640, 320, true);
 	}
 
 	@Override
@@ -62,8 +68,12 @@ public class PlayState extends GameState {
 
 	public void cameraUpdate(float delta) {
 		Vector3 position = camera.position;
-		position.x = player.getPosition().x * PPM;
-		position.y = player.getPosition().y * PPM;
+		// simple Interpolation camera effect
+		// a + (b-a) * lerp
+		// b = target
+		// a = current camera position
+		position.x = camera.position.x + (player.getPosition().x * PPM - camera.position.x) * .1f;
+		position.y = camera.position.y + (player.getPosition().y * PPM - camera.position.y) * .1f;
 		camera.position.set(position);
 		camera.update();
 	}
